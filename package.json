@@ -1,0 +1,16 @@
+{
+  "name": "nclient-module-system",
+  "id": "system",
+  "title": "System",
+  "version": "1.0.2",
+  "description": "Basic system module",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -f nclient-module-system-*.tgz && npm pack && cp nclient-module-system-*.tgz ../../ncloud/public/modules/nclient-module-system.tgz"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nclient-lib": "git+https://github.com/royalsoftkv/nclient-lib.git"
+  }
+}
