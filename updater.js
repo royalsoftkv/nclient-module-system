@@ -25,8 +25,10 @@ checkUpdates = () => {
     for(let i in NodeClient.modules) {
         let module = NodeClient.modules[i]
         let moduleInfo = module.moduleInfo
-        let moduleId = moduleInfo.id
-        fetchNClientModuleVersion(moduleId)
+        if(moduleInfo && moduleInfo.id) {
+            let moduleId = moduleInfo.id
+            fetchNClientModuleVersion(moduleId)
+        }
     }
 }
 
