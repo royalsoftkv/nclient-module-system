@@ -1,4 +1,5 @@
 const NodeClient = require('nclient-lib')
+const Updater = require('./updater')
 
 module.exports = {
     moduleInfo: NodeClient.readModuleInfo(require('./package.json'))
@@ -13,4 +14,11 @@ NodeClient.registerDeviceMethod('listDeviceMethods', () => {
     }
 })
 
+NodeClient.registerDeviceMethod('checkModuleVersions', () => {
+    return Updater.moduleVersions
+})
 
+NodeClient.registerDeviceMethod('updateModules', async ()=>{
+    let res = await NodeClient.commonHandler.execCmd('npm update')
+    return res
+})
