@@ -6,8 +6,7 @@ module.exports = {
 
 NodeClient.registerNodeMethod('listDeviceMethods', (params, cb) => {
     cb( {
-        commonHandler: Object.keys(NodeClient.commonHandler),
-        handler: NodeClient.handler ? Object.keys(NodeClient.handler) : [],
+        remoteHandler: Object.keys(NodeClient.remoteHandler),
         methods: Object.keys(NodeClient.methods),
         globals: Object.keys(global)
     })
