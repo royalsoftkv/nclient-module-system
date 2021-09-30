@@ -14,11 +14,12 @@ NodeClient.registerNodeMethod('listDeviceMethods', (params, cb) => {
 
 NodeClient.registerNodeMethod('updateModules', async (params)=>{
     let res = await NodeClient.commonHandler.execCmd('npm update')
-    if(res.stderr) {
-        console.log("Can not execute npm udate")
+    if(res.stderr && res.stderr.includes('npm: not found')) {
+        console.log("Can not execute npm update: " + res.stderr)
         res = await NodeClient.commonHandler.execCmd('export PATH="$PATH:$(pwd)" && npm update')
         return res
     } else {
+        console.log(res)
         return res
     }
 })

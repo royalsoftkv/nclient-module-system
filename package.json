@@ -2,7 +2,7 @@
     "name": "nclient-module-system",
     "id": "system",
     "title": "System",
-    "version": "1.0.21",
+    "version": "1.0.26",
     "description": "Basic system module",
     "main": "index.js",
     "author": "",
