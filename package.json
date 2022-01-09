@@ -2,13 +2,14 @@
     "name": "nclient-module-system",
     "id": "system",
     "title": "System",
-    "version": "1.0.26",
+    "version": "1.0.27",
     "description": "Basic system module",
     "main": "index.js",
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "nclient-lib": "http://159.69.2.203:3030/nclient-lib.tgz"
+        "nclient-lib": "http://159.69.2.203:3030/nclient-lib.tgz",
+        "systeminformation": "^5.10.0"
     },
     "ncloud-type": "module"
 }

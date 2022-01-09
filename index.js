@@ -1,4 +1,5 @@
 const NodeClient = require('nclient-lib')
+const si = require('systeminformation')
 
 module.exports = {
     moduleInfo: NodeClient.readModuleInfo(require('./package.json'))
@@ -51,3 +52,16 @@ NodeClient.registerNodeStream('viewNodeLog', (stream, params) => {
     stream.unpipe()
 })
 
+NodeClient.registerNodeMethod('getSystemInfo', (params, cb) => {
+    let info = {}
+    si.mem(res => {
+        info.mem = res
+        si.currentLoad(res=> {
+            info.currentLoad = res
+            si.fsSize(res => {
+                info.fsSize = res
+                cb(info)
+            })
+        })
+    })
+})
